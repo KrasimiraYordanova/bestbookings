@@ -1,2 +1,10 @@
-<h1>Accomodation name</h1>
-<p>Accomodation description</p>
+<section>
+
+    {{#with room}}
+    <h1>{{name}} - Details</h1>
+    <div><img src="{{imgUrl}}" alt=""></div>
+    <p>{{description}}</p>
+    <p>Price per night: {{price}}$</p>
+    {{/with}}
+   
+</section>

@@ -1,1 +1,23 @@
-<h1>List of all our accomodations</h1>
+<section>
+    <h1>List of all our accomodations</h1>
+
+    <p>Search</p>
+    <div>
+        <form method="get">
+            <input name="search" value="search">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    {{#if rooms}}
+    <ul>
+        {{#each rooms}}
+        {{> roomCard}}
+        {{/each}}
+    </ul>
+    {{else}}
+    <p>Nothing has been listed yet</p>
+    <div><a href="/create">Host accomodation</a></div>
+    {{/if}}
+
+</section>

@@ -1,1 +1,17 @@
-<h1>create accomodation</h1>
+<section>
+    <h1>create accomodation</h1>
+    <form action="/create" method="post">
+        {{#if error}}
+        {{#each error}}
+        <p>{{this}}</p>
+        {{/each}}
+        {{/if}}
+        <label><span>Name</span><input type="text" name="name"></label>
+        <label><span>City</span><input type="text" name="city"></label>
+        <label><span>Beds</span><input type="number" name="beds"></label>
+        <label><span>Price per night</span><input type="number" name="price"></label>
+        <label><span>Image</span><input type="text" name="imgUrl"></label>
+        <label><span>Description</span><textarea name="description"></textarea></label>
+        <button>Add Accomodation</button>
+    </form>
+</section>

@@ -1,0 +1,28 @@
+[
+    {
+        "id": "1234",
+        "name": "Room",
+        "description": "Nice and cozy",
+        "city": "Bansko",
+        "beds": "2",
+        "price": 130,
+        "imgUrl": "/static/assets/room1.jpeg"
+    },
+    {
+        "id": "0bf28c",
+        "name": "Hotel room",
+        "city": "Sofia",
+        "beds": 2,
+        "price": 150,
+        "imgUrl": ""
+    },
+    {
+        "id": "0c6a9a",
+        "name": "Hotel room 2",
+        "city": "Sofia",
+        "beds": 1,
+        "price": 70,
+        "imgUrl": ""
+    }
+    
+]

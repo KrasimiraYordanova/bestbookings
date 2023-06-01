@@ -1,0 +1,13 @@
+<section id="create-facility-section">
+    <h1>New Facility</h1>
+    <form action="/facility/create" method="post">
+        {{!-- {{#if error}}
+        {{#each error}}
+        <p>{{this}}</p>
+        {{/each}}
+        {{/if}} --}}
+        <label><span>Label</span><input type="text" name="label"></label>
+        <label><span>Icon URL</span><input type="text" name="iconUrl"></label>
+        <input type="submit" value="Publish">
+    </form>
+</section>

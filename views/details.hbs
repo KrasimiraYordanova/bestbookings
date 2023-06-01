@@ -5,6 +5,18 @@
     <div><img src="{{imgUrl}}" alt=""></div>
     <p>{{description}}</p>
     <p>Price per night: {{price}}$</p>
+
+    <ul>
+        {{#each facilities}}
+        <li>{{label}} <img src="{{iconUrl}}"></li>
+        {{/each}}
+    </ul>
     {{/with}}
+
+    
+
+    <div>
+        <a href="/facility/{{room._id}}/decorateRoom">Edit facilities</a>
+    </div>
    
 </section>

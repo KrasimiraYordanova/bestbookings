@@ -11,13 +11,21 @@
 
 <body>
     <header>
+        {{#if hasUser}}
+        <p>Welcome, {{username}} </p>
+        {{/if}}
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
                 <li><a href="/catalog">Catalog</a></li>
-                <li><a href="/create">Create</a></li>
+                {{#if hasUser}}
+                <li><a href="/create">Host</a></li>
                 <li><a href="/facility/create">Create facility</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+                {{else}}
+                <li><a href="/auth/login">Login</a></li>
+                <li><a href="/auth/register">Register</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>

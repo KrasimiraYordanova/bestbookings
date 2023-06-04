@@ -8,7 +8,9 @@ function verifyAuth(jwtSecret) {
         const data = jwt.verify(token, jwtSecret);
         req.user = data;
       } catch (err) {
-        res.cookie("token", "", { maxAge: 0 });
+        // CLEARING THE COOKIE IF IT IS NOT VALID (x2 ways)
+        // res.cookie("token", "", { maxAge: 0 });
+        res.clearCookie("token");
         return res.redirect("/login");
       }
     }

@@ -29,8 +29,12 @@ facilityController.post('/create', async (req, res) => {
 facilityController.get('/:roomId/decorateRoom', async (req, res) => {
     const roomId = req.params.roomId;
     const room = await getById(roomId);
+    
+    if (!req.user || room.owner != req.user._id) {
+        return res.redirect("/auth/login");
+    }
+    
     const facilities = await getAllFacilities();
-
     facilities.forEach(f => {
         // console.log('checking', f.label, room.facilities.some(id => id == f._id));
         // console.log('checking', f.label, f._id);
@@ -50,6 +54,12 @@ facilityController.get('/:roomId/decorateRoom', async (req, res) => {
 })
 
 facilityController.post('/:roomId/decorateRoom', async (req, res) => {
+    const roomId = req.params.roomId;
+    const room = await getById(roomId);
+    
+    if (!req.user || room.owner != req.user._id) {
+        return res.redirect("/auth/login");
+    }
     // console.log(req.body);
     await addFacilities(req.params.roomId, Object.keys(req.body));
     res.redirect('/facility/' + req.params.roomId + '/decorateRoom');

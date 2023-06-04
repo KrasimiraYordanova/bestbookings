@@ -28,8 +28,27 @@ async function create(roomData, ownerId) {
     return result;
 }
 
+async function update(roomId, roomData) {
+    const missing = Object.entries(roomData).filter(([k, v]) => !v);
+    if(missing.length > 0) {
+        throw new Error(missing.map(m => `${m[0]} is required!`).join('\n'));
+    }
+
+    const room = await Room.findById(roomId);
+
+    const updatedRoom = Object.assign(room, roomData);
+    await updatedRoom.save();
+    return updatedRoom;
+}
+
+async function deleteById(roomId) {
+    return Room.findByIdAndRemove(roomId);
+}
+
 module.exports = {
     getAll,
     getById,
-    create
+    create,
+    update, 
+    deleteById
 }

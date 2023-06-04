@@ -16,6 +16,8 @@
 
     {{#if room.isOwner}}
     <div>
+        <a href="/room/{{room._id}}/edit">Edit room</a>
+        <a href="/room/{{room._id}}/delete">Delete room</a>
         <a href="/facility/{{room._id}}/decorateRoom">Edit facilities</a>
     </div>
     {{/if}}

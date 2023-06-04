@@ -5,6 +5,7 @@ const errorController = require("../controllers/errorController");
 const facilityController = require("../controllers/facilityController");
 const authController = require("../controllers/authController");
 const { hasUser } = require("../middlewares/guards");
+const roomController = require("../controllers/roomController");
 
 function app(app) {
   app.use(homeController);
@@ -12,6 +13,7 @@ function app(app) {
   app.use("/create", hasUser(), createController);
   app.use("/facility", facilityController);
   app.use('/auth', authController);
+  app.use('/room', roomController);
 
   app.all("*", errorController);
 }

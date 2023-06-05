@@ -1,3 +1,7 @@
 body {
     background-color: burlywood;
 }
+
+.field-error {
+    border: 2px solid red;
+}

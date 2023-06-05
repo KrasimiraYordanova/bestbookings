@@ -1,13 +1,17 @@
 const { Schema, model } = require('mongoose');
 
-const roleSchema = new Schema({
-    value: { type: String, enum: ['user', 'admin']}
-})
-
 const userSchema = new Schema( {
-    username: { type: String, require: 3},
+    username: { type: String, minlength: 3},
     hashedPass: { type: String, require: true },
-    roles: { type: [roleSchema], default: ['user']}
+    roles: { type: [{ type: String, enum:['user', 'admin'] }], default: ['user']}
+});
+
+userSchema.index({ username: 1 }, {
+    unique: true,
+    collation: {
+        locale: 'en',
+        strength: 2
+    }
 });
 
 const User = model ('User', userSchema);
